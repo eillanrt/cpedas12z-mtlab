@@ -5,12 +5,13 @@
 #include "../Song/Song.hpp"
 
 class Playlist : public DoublyLinkedList<Song*> {
-    Node<Song*> *currentlyPlaying;
+    Node<Song*> *currentlyPlaying = nullptr;
 public:
     void addSong(Song *song);
     void playSong(int index);
     Node<Song*> *getCurrentPlaying();
     void nextSong();
+    void prevSong();
 };
 
 

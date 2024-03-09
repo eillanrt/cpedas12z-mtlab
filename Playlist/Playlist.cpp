@@ -1,5 +1,6 @@
 #include "Playlist.hpp"
 #include "../DataStructs/Node.hpp"
+#include <iostream>
 
 void Playlist::addSong(Song *song) {
     addLast(song);

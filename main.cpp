@@ -3,6 +3,8 @@
 #include <iostream>
 using namespace std;
 
+Playlist playlist;
+
 void home();
 void clear()
 {
@@ -21,7 +23,7 @@ void showSongDetails(Node<Song *> *song)
 
 void showSongs(Playlist &playlist)
 {
-    clear();
+
     Node<Song *> *currentSong = playlist.getHead();
     int count = 0;
 
@@ -46,8 +48,9 @@ void player(Playlist &playlist)
 
     int action;
 
-    cout << "NOW PLAYING "
-         << playingSong->data->getTitle() << " - " << playingSong->data->getArtist() << "\n\n";
+    cout << "NOW PLAYING: "
+         << "\n\n";
+    showSongDetails(playingSong);
 
     cout << "NEXT SONG: " << nextSong->data->getTitle() << " - " << nextSong->data->getArtist() << "\n\n";
 
@@ -72,16 +75,8 @@ void player(Playlist &playlist)
 
 void home()
 {
-    clear();
-    Playlist playlist;
-
-    playlist.addSong(new Song("Love Story", "Taylor Swift", "Fearless", "Pop", 220, 2009));
-    playlist.addSong(new Song("Bohemian Rhapsody", "Queen", "A Night at the Opera", "Rock", 354, 1975));
-    playlist.addSong(new Song("Shape of You", "Ed Sheeran", "÷", "Pop", 233, 2017));
-    playlist.addSong(new Song("Billie Jean", "Michael Jackson", "Thriller", "Pop", 292, 1982));
-    playlist.addSong(new Song("Hotel California", "Eagles", "Hotel California", "Rock", 390, 1976));
-
-    cout << "WHAT DO YOU WANT TO DO?\n"
+    cout << string(50, '=')
+         << "\nWHAT DO YOU WANT TO DO?\n"
          << endl;
 
     string actions[] = {
@@ -102,16 +97,39 @@ void home()
 
     if (choice == 0)
     {
+        clear();
         showSongs(playlist);
     }
     else if (choice == 1)
     {
-        // string title, artist, album, genre;
-        // int durationInSeconds, releaseYear;
-        cout << "ADD SONG IMPLEMENT SOON" << endl;
+        clear();
+        string title, artist, albumName, genre;
+        int durationInSeconds, releaseYear;
+        cout << "ENTER SONG DETAILS\n"
+             << "\n\n";
+        cout << "TITLE: ";
+        cin >> title;
+        cout << "ARTIST: ";
+        cin >> artist;
+        cout << "ALBUM: ";
+        cin >> albumName;
+        cout << "GENRE: ";
+        cin >> genre;
+        cout << "DURATION: ";
+        cin >> durationInSeconds;
+        cout << "RELEASE YEAR: ";
+        cin >> releaseYear;
+
+        Song *song = new Song(title, artist, albumName, genre, durationInSeconds, releaseYear);
+        playlist.addSong(song);
+        // home();
+        cout << "\nSONG ADDED SUCCESSFULLY\n";
+        // cout << playlist.size() << endl;
+        home();
     }
     else if (choice == 2)
     {
+        clear();
         cout << "\n\nWHICH SONG YOU WANT TO PLAY?\n"
              << endl;
         Node<Song *> *song = playlist.getHead();
@@ -137,16 +155,35 @@ void home()
     }
 }
 
+void seedPlaylist()
+{
+    playlist.addSong(new Song("Love Story", "Taylor Swift", "Fearless", "Pop", 220, 2009));
+    playlist.addSong(new Song("Bohemian Rhapsody", "Queen", "A Night at the Opera", "Rock", 354, 1975));
+    playlist.addSong(new Song("Shape of You", "Ed Sheeran", "÷", "Pop", 233, 2017));
+    playlist.addSong(new Song("Billie Jean", "Michael Jackson", "Thriller", "Pop", 292, 1982));
+    playlist.addSong(new Song("Hotel California", "Eagles", "Hotel California", "Rock", 390, 1976));
+}
+
 int main()
 {
+    seedPlaylist();
     cout << " WELCOME " << endl;
     cout << "PRESS 1 TO CONTINUE" << endl;
-    cout << "PRESS Any key TO EXIT" << endl;
-    string res;
-    cin >> res;
+    cout << "PRESS Any key TO EXIT" << endl; /*
+     string res;
+     cin >> res;
 
-    if (res == "1")
-        home();
+     if (res == "1")
+     {
+         home();
+         clear();
+     }
+     else
+     {
+         exit(0);
+     }*/
+
+    home();
 
     return 0;
 }

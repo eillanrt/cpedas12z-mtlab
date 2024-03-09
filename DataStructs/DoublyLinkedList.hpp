@@ -54,6 +54,8 @@ void DoublyLinkedList<T>::insertAfter(int index, T data) {
     for (int i = 0; i < index; i++) {
         curr = curr->next;
     }
+    node->next = curr->next;
+    node->prev = curr;
     curr->next = node;
 }
 

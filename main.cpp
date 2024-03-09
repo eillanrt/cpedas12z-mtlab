@@ -52,7 +52,7 @@ void player(Playlist &playlist)
          << "\n\n";
     showSongDetails(playingSong);
 
-    cout << "NEXT SONG: " << nextSong->data->getTitle() << " - " << nextSong->data->getArtist() << "\n\n";
+    cout << "\nNEXT SONG: " << nextSong->data->getTitle() << " - " << nextSong->data->getArtist() << "\n\n";
 
     cout << "Press 0 to play NEXT SONG\nPress 1 to play PREV SONG\nPress 2 to STOP PLAYING\n=> ";
 
@@ -175,7 +175,7 @@ int main()
 
      if (res == "1")
      {
-         home();
+         home();`
          clear();
      }
      else

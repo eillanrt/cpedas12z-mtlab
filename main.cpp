@@ -9,7 +9,9 @@ int main() {
   playlist.addLast(new Song("Shape of You", "Ed Sheeran", "÷", "Pop", 233, 2017));
   playlist.addLast(new Song("Billie Jean", "Michael Jackson", "Thriller", "Pop", 292, 1982));
   playlist.addLast(new Song("Hotel California", "Eagles", "Hotel California", "Rock", 390, 1976));
-  std::cout << "TOTAL NUMBER SONGS: " << playlist.size() << std::endl;
 
+  playlist.playSong(4);
+  std::cout << "TOTAL NUMBER SONGS: " << playlist.size() << std::endl;
+  std::cout << "PLAYING: " << playlist.getCurrentPlaying()->data->getTitle() << std::endl;
   return 0;
 }

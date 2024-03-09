@@ -28,7 +28,7 @@ void DoublyLinkedList<T>::addFirst(T data)
     Node<T> *node = new Node<T>(data);
     node->next = head;
     head = node;
-    if (head == nullptr)
+    if (head->next == nullptr)
     {
         tail = head;
     }

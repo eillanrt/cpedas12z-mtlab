@@ -12,6 +12,7 @@ protected:
 public:
     void addFirst(T data);
     void addLast(T data);
+    Node<T>* getHead();
     void insertAfter(int index, T data);
     Node<T>* getFromIndex(int index);
     int size();
@@ -54,6 +55,11 @@ void DoublyLinkedList<T>::insertAfter(int index, T data) {
         curr = curr->next;
     }
     curr->next = node;
+}
+
+template <typename T>
+Node<T>* DoublyLinkedList<T>::getHead() {
+    return head;
 }
 
 template <typename T>

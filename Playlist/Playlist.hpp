@@ -10,6 +10,7 @@ public:
     void addSong(Song *song);
     void playSong(int index);
     Node<Song*> *getCurrentPlaying();
+    void nextSong();
 };
 
 

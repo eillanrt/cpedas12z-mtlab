@@ -7,7 +7,7 @@ void Playlist::addSong(Song *song) {
 }
 
 void Playlist::playSong(int index) {
-    if (index > size() || index < 0){
+    if (index > size() - 1 || index < 0){
         std::cout << "SONG " << index << " NOT AVAILABLE\n";
         return;
     }
@@ -17,3 +17,13 @@ void Playlist::playSong(int index) {
 Node<Song*>* Playlist::getCurrentPlaying() {
     return currentlyPlaying;
 }
+
+void Playlist::nextSong() {
+    Node<Song*>* nextSong = currentlyPlaying->next;
+    if (currentlyPlaying == nullptr){
+        currentlyPlaying = head;
+        return;
+    }
+    currentlyPlaying = nextSong;
+}
+

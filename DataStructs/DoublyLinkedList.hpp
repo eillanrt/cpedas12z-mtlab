@@ -2,7 +2,7 @@
 #define DOUBLYLINKEDLIST_HPP
 
 #include "Node.hpp"
-#include <iostream>
+
 template <typename T>
 class DoublyLinkedList
 {
@@ -52,6 +52,7 @@ void DoublyLinkedList<T>::addLast(T data)
     }
     node->prev = curr;
     curr->next = node;
+    tail = node;
 }
 
 template <typename T>
@@ -66,6 +67,9 @@ void DoublyLinkedList<T>::insertAfter(int index, T data)
     node->next = curr->next;
     node->prev = curr;
     curr->next = node;
+    if (node->next == nullptr) {
+        tail = node;
+    }
 }
 
 template <typename T>

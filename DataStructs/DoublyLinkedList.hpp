@@ -14,6 +14,7 @@ public:
     void addFirst(T data);
     void addLast(T data);
     Node<T> *getHead();
+    Node<T> *getTail();
     void insertAfter(int index, T data);
     Node<T> *getFromIndex(int index);
     int size();
@@ -71,6 +72,12 @@ template <typename T>
 Node<T> *DoublyLinkedList<T>::getHead()
 {
     return head;
+}
+
+template <typename T>
+Node<T> *DoublyLinkedList<T>::getTail()
+{
+    return tail;
 }
 
 template <typename T>

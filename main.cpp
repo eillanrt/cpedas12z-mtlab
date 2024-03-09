@@ -4,6 +4,10 @@
 using namespace std;
 
 void home();
+void clear()
+{
+    system("cls");
+}
 
 void showSongDetails(Node<Song *> *song)
 {
@@ -17,6 +21,7 @@ void showSongDetails(Node<Song *> *song)
 
 void showSongs(Playlist &playlist)
 {
+    clear();
     Node<Song *> *currentSong = playlist.getHead();
     int count = 0;
 
@@ -27,21 +32,26 @@ void showSongs(Playlist &playlist)
         showSongDetails(currentSong);
         currentSong = currentSong->next;
         count++;
+        cout << "\n";
     }
     home();
 }
 
 void player(Playlist &playlist)
 {
-    system("cls");
+    clear();
     cin.ignore();
     Node<Song *> *playingSong = playlist.getCurrentPlaying();
+    Node<Song *> *nextSong = playingSong->next == nullptr ? playlist.getHead() : playingSong->next;
+
     int action;
 
     cout << "NOW PLAYING "
-         << playingSong->data->getTitle() << " BY " << playingSong->data->getArtist() << endl;
+         << playingSong->data->getTitle() << " - " << playingSong->data->getArtist() << "\n\n";
 
-    cout << "0. NEXT SONG\n1. PREV SONG\n2. STOP PLAYING\n=> ";
+    cout << "NEXT SONG: " << nextSong->data->getTitle() << " - " << nextSong->data->getArtist() << "\n\n";
+
+    cout << "Press 0 to play NEXT SONG\nPress 1 to play PREV SONG\nPress 2 to STOP PLAYING\n=> ";
 
     cin >> action;
     if (action == 0)
@@ -62,7 +72,7 @@ void player(Playlist &playlist)
 
 void home()
 {
-    cout << "\n\n";
+    clear();
     Playlist playlist;
 
     playlist.addSong(new Song("Love Story", "Taylor Swift", "Fearless", "Pop", 220, 2009));
@@ -70,6 +80,9 @@ void home()
     playlist.addSong(new Song("Shape of You", "Ed Sheeran", "÷", "Pop", 233, 2017));
     playlist.addSong(new Song("Billie Jean", "Michael Jackson", "Thriller", "Pop", 292, 1982));
     playlist.addSong(new Song("Hotel California", "Eagles", "Hotel California", "Rock", 390, 1976));
+
+    cout << "WHAT DO YOU WANT TO DO?\n"
+         << endl;
 
     string actions[] = {
         "Show songs",
@@ -99,7 +112,7 @@ void home()
     }
     else if (choice == 2)
     {
-        cout << "WHICH SONG YOU WANT TO PLAY?\n"
+        cout << "\n\nWHICH SONG YOU WANT TO PLAY?\n"
              << endl;
         Node<Song *> *song = playlist.getHead();
 
@@ -111,11 +124,11 @@ void home()
             string title = song->data->getTitle();
             string artist = song->data->getArtist();
 
-            cout << count << ": " << title << " by " << artist << endl;
+            cout << count << ": " << title << " - " << artist << endl;
             count++;
             song = song->next;
         }
-        cout << "SONG NUMBER => ";
+        cout << "\nSONG NUMBER => ";
         cin >> songNumber;
 
         playlist.playSong(songNumber);
@@ -126,9 +139,14 @@ void home()
 
 int main()
 {
-    cout << "WELCOME!!! " << endl;
+    cout << " WELCOME " << endl;
+    cout << "PRESS 1 TO CONTINUE" << endl;
+    cout << "PRESS Any key TO EXIT" << endl;
+    string res;
+    cin >> res;
 
-    home();
+    if (res == "1")
+        home();
 
     return 0;
 }

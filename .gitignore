@@ -1,0 +1,35 @@
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+
+# Executables
+*.exe
+*.out
+
+# CMake build directory
+cmake-build-*/
+
+# Compiled binaries
+/bin/
+/bin-debug/
+/bin-release/
+
+# CLion-specific files
+.cmake/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Compiled C++ files
+*.gch
+*.pch
+
+# CLion project files
+/.idea/workspace.xml
+/.idea/modules.xml
+/.idea/*.iml
+
+# User-specific files
+*.DS_Store

@@ -4,43 +4,49 @@
 #include "Node.hpp"
 
 template <typename T>
-class DoublyLinkedList {
+class DoublyLinkedList
+{
 protected:
-    Node<T>* head = nullptr;
-    Node<T>* tail = nullptr;
+    Node<T> *head = nullptr;
+    Node<T> *tail = nullptr;
 
 public:
     void addFirst(T data);
     void addLast(T data);
-    Node<T>* getHead();
+    Node<T> *getHead();
     void insertAfter(int index, T data);
-    Node<T>* getFromIndex(int index);
+    Node<T> *getFromIndex(int index);
     int size();
     bool empty();
     ~DoublyLinkedList();
 };
 
 template <typename T>
-void DoublyLinkedList<T>::addFirst(T data){
+void DoublyLinkedList<T>::addFirst(T data)
+{
     Node<T> *node = new Node<T>(data);
     node->next = head;
     head = node;
-    if (head == nullptr){
+    if (head == nullptr)
+    {
         tail = head;
     }
 }
 
 template <typename T>
-void DoublyLinkedList<T>::addLast(T data){
+void DoublyLinkedList<T>::addLast(T data)
+{
     Node<T> *node = new Node<T>(data);
-    if (empty()){
+    if (empty())
+    {
         addFirst(data);
         return;
     }
 
     Node<T> *curr = this->head;
 
-    while(curr->next != nullptr){
+    while (curr->next != nullptr)
+    {
         curr = curr->next;
     }
     node->prev = curr;
@@ -48,10 +54,12 @@ void DoublyLinkedList<T>::addLast(T data){
 }
 
 template <typename T>
-void DoublyLinkedList<T>::insertAfter(int index, T data) {
-    Node<T> *node = new Node(data);
+void DoublyLinkedList<T>::insertAfter(int index, T data)
+{
+    Node<T> *node = new Node<T>(data);
     Node<T> curr = head;
-    for (int i = 0; i < index; i++) {
+    for (int i = 0; i < index; i++)
+    {
         curr = curr->next;
     }
     node->next = curr->next;
@@ -60,25 +68,30 @@ void DoublyLinkedList<T>::insertAfter(int index, T data) {
 }
 
 template <typename T>
-Node<T>* DoublyLinkedList<T>::getHead() {
+Node<T> *DoublyLinkedList<T>::getHead()
+{
     return head;
 }
 
 template <typename T>
-Node<T>* DoublyLinkedList<T>::getFromIndex(int index) {
-    Node<T>* curr = head;
-    for (int i = 0; i < index; i++) {
+Node<T> *DoublyLinkedList<T>::getFromIndex(int index)
+{
+    Node<T> *curr = head;
+    for (int i = 0; i < index; i++)
+    {
         curr = curr->next;
     }
     return curr;
 }
 
 template <typename T>
-int DoublyLinkedList<T>::size() {
-    Node<T>* curr = this->head;
+int DoublyLinkedList<T>::size()
+{
+    Node<T> *curr = this->head;
     int count = 0;
 
-    while (curr != nullptr){
+    while (curr != nullptr)
+    {
         count++;
         curr = curr->next;
     }
@@ -86,14 +99,17 @@ int DoublyLinkedList<T>::size() {
 }
 
 template <typename T>
-bool DoublyLinkedList<T>::empty(){
+bool DoublyLinkedList<T>::empty()
+{
     return head == nullptr;
 }
 
 template <typename T>
-DoublyLinkedList<T>::~DoublyLinkedList() {
-    while (head != nullptr) {
-        Node<T>* temp = head;
+DoublyLinkedList<T>::~DoublyLinkedList()
+{
+    while (head != nullptr)
+    {
+        Node<T> *temp = head;
         head = head->next;
         delete temp;
     }

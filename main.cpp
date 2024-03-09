@@ -103,28 +103,38 @@ void home()
     else if (choice == 1)
     {
         clear();
+        cin.ignore();
         string title, artist, albumName, genre;
         int durationInSeconds, releaseYear;
-        cout << "ENTER SONG DETAILS\n"
-             << "\n\n";
+
+        cout << "ENTER SONG DETAILS\n\n";
+
         cout << "TITLE: ";
-        cin >> title;
+        getline(cin, title);
+
         cout << "ARTIST: ";
-        cin >> artist;
+        getline(cin, artist);
+
         cout << "ALBUM: ";
-        cin >> albumName;
+        getline(cin, albumName);
+
         cout << "GENRE: ";
-        cin >> genre;
+        getline(cin, genre);
+
         cout << "DURATION: ";
         cin >> durationInSeconds;
+
         cout << "RELEASE YEAR: ";
         cin >> releaseYear;
 
+        // Clear the input buffer
+        cin.ignore();
+
         Song *song = new Song(title, artist, albumName, genre, durationInSeconds, releaseYear);
         playlist.addSong(song);
-        // home();
+
         cout << "\nSONG ADDED SUCCESSFULLY\n";
-        // cout << playlist.size() << endl;
+
         home();
     }
     else if (choice == 2)
@@ -168,20 +178,22 @@ int main()
 {
     seedPlaylist();
     cout << " WELCOME " << endl;
-    cout << "PRESS 1 TO CONTINUE" << endl;
-    cout << "PRESS Any key TO EXIT" << endl; /*
-     string res;
-     cin >> res;
+    //  cout << "PRESS 1 TO CONTINUE" << endl;
+    //  cout << "PRESS Any key TO EXIT" << endl;
+    /*
+    string res;
+    cin >> res;
 
-     if (res == "1")
-     {
-         home();`
-         clear();
-     }
-     else
-     {
-         exit(0);
-     }*/
+    if (res == "1")
+    {
+        home();
+        ` clear();
+    }
+    else
+    {
+        exit(0);
+    }
+    */
 
     home();
 

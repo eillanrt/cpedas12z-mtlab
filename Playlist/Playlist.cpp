@@ -22,14 +22,14 @@ Node<Song*>* Playlist::getCurrentPlaying() {
 
 void Playlist::prevSong() {
     if (currentlyPlaying == nullptr){
-        playSong(0);
+        currentlyPlaying = head;
         return;
     }
 
     Node<Song*>* prev = currentlyPlaying->prev;
 
     if (prev == nullptr){
-        playSong(size() - 1);
+        currentlyPlaying = tail;
     } else {
         currentlyPlaying = prev;
     }
@@ -37,7 +37,7 @@ void Playlist::prevSong() {
 
 void Playlist::nextSong() {
     if (currentlyPlaying == nullptr){
-        playSong(0);
+        currentlyPlaying = head;
         return;
     }
     Node<Song*>* next = currentlyPlaying->next;

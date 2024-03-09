@@ -59,7 +59,8 @@ template <typename T>
 void DoublyLinkedList<T>::insertAfter(int index, T data)
 {
     Node<T> *node = new Node<T>(data);
-    Node<T> curr = head;
+    Node<T> *curr = head;
+    
     for (int i = 0; i < index; i++)
     {
         curr = curr->next;

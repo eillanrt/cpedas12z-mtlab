@@ -8,7 +8,7 @@ class Playlist : public DoublyLinkedList<Song*> {
     Node<Song*> *currentlyPlaying = nullptr;
 public:
     void addSong(Song *song);
-    void playSong(int index);
+    Node<Song*>* playSong(int index);
     Node<Song*> *getCurrentPlaying();
     void prevSong();
     void nextSong();

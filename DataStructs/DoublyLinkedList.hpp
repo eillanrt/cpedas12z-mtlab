@@ -2,7 +2,7 @@
 #define DOUBLYLINKEDLIST_HPP
 
 #include "Node.hpp"
-
+#include <iostream>
 template <typename T>
 class DoublyLinkedList
 {

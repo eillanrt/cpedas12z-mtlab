@@ -51,6 +51,7 @@ void player(Playlist &playlist)
    }
 
     Node<Song*> *nextSong = playingSong->next == nullptr ? playlist.getHead() : playingSong->next;
+    Node<Song*> *prevSong = playingSong->prev == nullptr ? playlist.getTail() : playingSong->prev;
 
     int action;
 
@@ -58,7 +59,8 @@ void player(Playlist &playlist)
          << "\n\n";
     showSongDetails(playingSong);
 
-    cout << "\nNEXT SONG: " << nextSong->data->getTitle() << " - " << nextSong->data->getArtist() << "\n\n";
+    cout << "\nNEXT SONG: " << nextSong->data->getTitle() << " - " << nextSong->data->getArtist() << "\n";
+    cout << "PREV SONG: " << prevSong->data->getTitle() << " - " << prevSong->data->getArtist() << "\n\n";
 
     cout << "Press 0 to play NEXT SONG\nPress 1 to play PREV SONG\nPress 2 to STOP PLAYING\n=> ";
 
@@ -171,6 +173,7 @@ void home()
         playlist.playSong(songNumber);
         player(playlist);
     } else if (choice == 3) {
+        cout << "PROGRAM EXITING...\n";
         exit(0);
     } else {
         cout << "INVALID PROMPT!" << endl;
@@ -191,23 +194,7 @@ void seedPlaylist()
 int main()
 {
     seedPlaylist();
-    cout << " WELCOME " << endl;
-    //  cout << "PRESS 1 TO CONTINUE" << endl;
-    //  cout << "PRESS Any key TO EXIT" << endl;
-    /*
-    string res;
-    cin >> res;
-
-    if (res == "1")
-    {
-        home();
-        ` clear();
-    }
-    else
-    {
-        exit(0);
-    }
-    */
+    cout << "\n WELCOME \n\n";
 
     home();
 

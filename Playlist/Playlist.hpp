@@ -5,6 +5,7 @@
 #include "../Song/Song.hpp"
 
 class Playlist : public DoublyLinkedList<Song*> {
+private:
     Node<Song*> *currentlyPlaying = nullptr;
 public:
     void addSong(Song *song);

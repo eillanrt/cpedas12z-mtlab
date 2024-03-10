@@ -37,12 +37,12 @@ void DoublyLinkedList<T>::addFirst(T data)
 template <typename T>
 void DoublyLinkedList<T>::addLast(T data)
 {
-    Node<T> *node = new Node<T>(data);
     if (empty())
     {
         addFirst(data);
         return;
     }
+    Node<T> *node = new Node<T>(data);
 
     Node<T> *curr = head;
 

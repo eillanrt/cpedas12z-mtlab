@@ -11,6 +11,8 @@ public:
     void addSong(Song *song);
     Node<Song*> *playSong(int index);
     Node<Song*> *getCurrentPlaying();
+    void setCurrentlyPlaying(Node<Song*> *song);
+    void stopPlaying();
     void prevSong();
     void nextSong();
 };

@@ -44,6 +44,13 @@ void player(Playlist &playlist)
     clear();
     cin.ignore();
     Node<Song*> *playingSong = playlist.getCurrentPlaying();
+
+   if (playingSong == nullptr) {
+      cout << "\nSONG NOT AVAILABLE!\n";
+      home();
+      return;
+   }
+
     Node<Song*> *nextSong = playingSong->next == nullptr ? playlist.getHead() : playingSong->next;
 
     int action;
@@ -60,17 +67,20 @@ void player(Playlist &playlist)
     if (action == 0)
     {
         playlist.nextSong();
-        player(playlist);
     }
     else if (action == 1)
     {
         playlist.prevSong();
-        player(playlist);
     }
     else if (action == 2)
     {
+        clear();
+        playlist.stopPlaying();
         home();
+    } else {
+        cout << "INVALID PROMPT" << endl;
     }
+    player(playlist);
 }
 
 void home()
@@ -127,7 +137,6 @@ void home()
         cout << "RELEASE YEAR: ";
         cin >> releaseYear;
 
-        // Clear the input buffer
         cin.ignore();
 
         Song *song = new Song(title, artist, albumName, genre, durationInSeconds, releaseYear);
@@ -142,7 +151,7 @@ void home()
         clear();
         cout << "\n\nWHICH SONG YOU WANT TO PLAY?\n"
              << endl;
-        Node<Song *> *song = playlist.getHead();
+        Node<Song*> *song = playlist.getHead();
 
         int count = 0;
         int songNumber;
@@ -160,9 +169,14 @@ void home()
         cin >> songNumber;
 
         playlist.playSong(songNumber);
-
         player(playlist);
+    } else if (choice == 3) {
+        exit(0);
+    } else {
+        cout << "INVALID PROMPT!" << endl;
+        home();
     }
+
 }
 
 void seedPlaylist()

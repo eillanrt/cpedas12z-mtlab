@@ -6,6 +6,7 @@ g++ -std=c++17 main.cpp DataStructs/DoublyLinkedList.hpp DataStructs/Node.hpp So
 # Check if compilation was successful
 if [ $? -eq 0 ]; then
     # If successful, run the program
+    clear
     ./myprogram
 else
     # If compilation failed, print an error message

@@ -1,6 +1,4 @@
 #include "Playlist.hpp"
-#include "../DataStructs/Node.hpp"
-#include <iostream>
 
 void Playlist::addSong(Song *song) {
     addLast(song);
@@ -8,7 +6,6 @@ void Playlist::addSong(Song *song) {
 
 Node<Song*> *Playlist::playSong(int index) {
     if (index > size() - 1 || index < 0){
-        std::cout << "SONG " << index << " NOT AVAILABLE\n";
         return nullptr;
     }
     currentlyPlaying = getFromIndex(index);
@@ -18,6 +15,14 @@ Node<Song*> *Playlist::playSong(int index) {
 
 Node<Song*> *Playlist::getCurrentPlaying() {
     return currentlyPlaying;
+}
+
+void Playlist::setCurrentlyPlaying(Node<Song*> *song) {
+    currentlyPlaying = song;
+}
+
+void Playlist::stopPlaying() {
+    setCurrentlyPlaying(nullptr);
 }
 
 void Playlist::prevSong() {

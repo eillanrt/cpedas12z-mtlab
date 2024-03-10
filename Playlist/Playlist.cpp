@@ -6,7 +6,7 @@ void Playlist::addSong(Song *song) {
 
 void Playlist::playSong(int index) {
     if (index > size() - 1 || index < 0){
-        currentlyPlaying = nullptr;
+        return;
     }
     currentlyPlaying = getFromIndex(index);
 }

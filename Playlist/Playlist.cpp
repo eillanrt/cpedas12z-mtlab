@@ -4,13 +4,11 @@ void Playlist::addSong(Song *song) {
     addLast(song);
 }
 
-Node<Song*> *Playlist::playSong(int index) {
+void Playlist::playSong(int index) {
     if (index > size() - 1 || index < 0){
-        return nullptr;
+        return;
     }
     currentlyPlaying = getFromIndex(index);
-    return currentlyPlaying;
-
 }
 
 Node<Song*> *Playlist::getCurrentPlaying() {

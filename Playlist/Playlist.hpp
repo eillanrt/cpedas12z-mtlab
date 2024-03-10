@@ -8,7 +8,7 @@ private:
     Node<Song*> *currentlyPlaying = nullptr;
 public:
     void addSong(Song *song);
-    Node<Song*> *playSong(int index);
+    void playSong(int index);
     Node<Song*> *getCurrentPlaying();
     void setCurrentlyPlaying(Node<Song*> *song);
     void stopPlaying();

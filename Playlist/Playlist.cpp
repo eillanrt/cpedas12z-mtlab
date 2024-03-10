@@ -6,17 +6,17 @@ void Playlist::addSong(Song *song) {
     addLast(song);
 }
 
-Node<Song*>* Playlist::playSong(int index) {
+Node<Song*> *Playlist::playSong(int index) {
     if (index > size() - 1 || index < 0){
         std::cout << "SONG " << index << " NOT AVAILABLE\n";
         return nullptr;
     }
-   currentlyPlaying = getFromIndex(index);
+    currentlyPlaying = getFromIndex(index);
     return currentlyPlaying;
 
 }
 
-Node<Song*>* Playlist::getCurrentPlaying() {
+Node<Song*> *Playlist::getCurrentPlaying() {
     return currentlyPlaying;
 }
 
@@ -26,7 +26,7 @@ void Playlist::prevSong() {
         return;
     }
 
-    Node<Song*>* prev = currentlyPlaying->prev;
+    Node<Song*> *prev = currentlyPlaying->prev;
 
     if (prev == nullptr){
         currentlyPlaying = tail;
@@ -40,7 +40,7 @@ void Playlist::nextSong() {
         currentlyPlaying = head;
         return;
     }
-    Node<Song*>* next = currentlyPlaying->next;
+    Node<Song*> *next = currentlyPlaying->next;
     if (next == nullptr){
         currentlyPlaying = head;
     } else {

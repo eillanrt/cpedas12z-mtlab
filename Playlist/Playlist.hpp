@@ -9,7 +9,7 @@ private:
     Node<Song*> *currentlyPlaying = nullptr;
 public:
     void addSong(Song *song);
-    Node<Song*>* playSong(int index);
+    Node<Song*> *playSong(int index);
     Node<Song*> *getCurrentPlaying();
     void prevSong();
     void nextSong();

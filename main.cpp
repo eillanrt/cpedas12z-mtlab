@@ -11,7 +11,7 @@ void clear()
     system("cls");
 }
 
-void showSongDetails(Node<Song *> *song)
+void showSongDetails(Node<Song*> *song)
 {
     cout << "TITLE: " << song->data->getTitle() << "\n"
          << "ARTIST: " << song->data->getArtist() << "\n"
@@ -24,7 +24,7 @@ void showSongDetails(Node<Song *> *song)
 void showSongs(Playlist &playlist)
 {
 
-    Node<Song *> *currentSong = playlist.getHead();
+    Node<Song*> *currentSong = playlist.getHead();
     int count = 0;
 
     while (currentSong != nullptr)
@@ -43,8 +43,8 @@ void player(Playlist &playlist)
 {
     clear();
     cin.ignore();
-    Node<Song *> *playingSong = playlist.getCurrentPlaying();
-    Node<Song *> *nextSong = playingSong->next == nullptr ? playlist.getHead() : playingSong->next;
+    Node<Song*> *playingSong = playlist.getCurrentPlaying();
+    Node<Song*> *nextSong = playingSong->next == nullptr ? playlist.getHead() : playingSong->next;
 
     int action;
 

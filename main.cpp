@@ -66,10 +66,12 @@ void player(Playlist &playlist)
     if (action == 0)
     {
         playlist.nextSong();
+        player(playlist);
     }
     else if (action == 1)
     {
         playlist.prevSong();
+        player(playlist);
     }
     else if (action == 2)
     {
@@ -79,7 +81,6 @@ void player(Playlist &playlist)
     } else {
         cout << "INVALID PROMPT" << endl;
     }
-    player(playlist);
 }
 
 void home()

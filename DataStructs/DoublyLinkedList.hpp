@@ -44,7 +44,7 @@ void DoublyLinkedList<T>::addLast(T data)
         return;
     }
 
-    Node<T> *curr = this->head;
+    Node<T> *curr = head;
 
     while (curr->next != nullptr)
     {
@@ -99,7 +99,7 @@ Node<T> *DoublyLinkedList<T>::getFromIndex(int index)
 template <typename T>
 int DoublyLinkedList<T>::size()
 {
-    Node<T> *curr = this->head;
+    Node<T> *curr = head;
     int count = 0;
 
     while (curr != nullptr)

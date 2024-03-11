@@ -7,7 +7,7 @@ Playlist playlist;
 void home();
 void clear()
 {
-    system("cls");
+    system("clear");
 }
 
 void showSongDetails(Node<Song*> *song)

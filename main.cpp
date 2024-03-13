@@ -16,7 +16,7 @@ void showSongDetails(Node<Song*> *song)
          << "ARTIST: " << song->data->getArtist() << "\n"
          << "ALBUM: " << song->data->getAlbumName() << "\n"
          << "GENRE: " << song->data->getGenre() << "\n"
-         << "DURATION: " << song->data->getDurationInSeconds() << "\n"
+         << "DURATION: " << song->data->getDurationInSeconds() << " Seconds\n"
          << "RELEASE YEAR: " << song->data->getReleaseYear() << "\n";
 }
 

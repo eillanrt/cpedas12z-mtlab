@@ -81,7 +81,7 @@ void player(Playlist &playlist)
         playlist.stopPlaying();
         home();
     } else {
-        cout << "INVALID PROMPT" << endl;
+        player(playlist);
     }
 }
 
